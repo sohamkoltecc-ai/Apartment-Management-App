@@ -4,6 +4,8 @@ import '../booking/booking_screen.dart';
 import '../notices/notice_screen.dart';
 import '../maintenance/maintenance_screen.dart';
 import '../profile/profile_screen.dart';
+import '../visitors/visitor_screen.dart';
+import '../services/services_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   final String email;
@@ -276,6 +278,28 @@ class DashboardScreen extends StatelessWidget {
                     "Notices",
                     Colors.deepPurple,
                     const NoticeScreen(),
+                  ),
+
+                  // --------------------------------------------------
+                  // VISITORS - ADDED
+                  // --------------------------------------------------
+                  buildCard(
+                    context,
+                    Icons.people,
+                    "Visitors",
+                    Colors.purple,
+                    const VisitorScreen(),
+                  ),
+
+                  // --------------------------------------------------
+                  // SOCIETY SERVICES - ADDED
+                  // --------------------------------------------------
+                  buildCard(
+                    context,
+                    Icons.home_repair_service,
+                    "Society Services",
+                    Colors.teal,
+                    const ServicesScreen(),
                   ),
 
                   buildCard(
@@ -620,9 +644,7 @@ class DashboardScreen extends StatelessWidget {
                     ),
                     title: Text("Flat Number"),
                     subtitle: Text("A-203"),
-                  ),
-
-                  ListTile(
+                  ),ListTile(
                     leading: Icon(
                       Icons.apartment,
                       color: Colors.blue,
