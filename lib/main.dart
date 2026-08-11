@@ -25,8 +25,18 @@ class ApartmentManagementApp extends StatelessWidget {
         ),
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.purple,
+          backgroundColor: Color(0xFFE1BEE7),
           foregroundColor: Colors.white,
+        ),
+        navigationBarTheme: NavigationBarThemeData(
+          backgroundColor: Colors.white,
+          indicatorColor: Colors.purpleAccent.shade100,
+          labelTextStyle: WidgetStatePropertyAll(
+            TextStyle(color: Colors.purple.shade700),
+          ),
+          iconTheme: WidgetStatePropertyAll(
+            IconThemeData(color: Colors.purple.shade700),
+          ),
         ),
       ),
       home: const DashboardPage(),
