@@ -27,6 +27,6 @@ lib/
 ├── Widgets/                     
 │   ├── Button.dart 
 ├── backends/                     
-│   ├── Authentication.dart
+│   ├── authentication.dart
 ```
 contributor update by Ashrafjaha
