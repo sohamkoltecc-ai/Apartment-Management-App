@@ -11,65 +11,66 @@ import 'package:my_apart/user_home.dart';
 //import 'package:my_apartment/user_home.dart';
 
 class page1 extends StatefulWidget {
-  const page1({Key? key}) : super(key: key);
+  const page1({super.key});
 
   @override
   State<page1> createState() => _page1State();
 }
 
 class _page1State extends State<page1> {
-
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      body: StreamBuilder<User?>(stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context,snapshot)
-         {
-          if(snapshot.hasData)
-          {
-           return Container(
-             child: fun(),
-           );
+    return Scaffold(
+      body: StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            fun();
+            return Container();
+          } else {
+            return f_login();
           }
-          else
-         {
-           return f_login();
-         }
-        }
-      )
+        },
+      ),
     );
   }
-fun()
-{
-  FirebaseFirestore.instance
-      .collection('Secretary')
-      .doc(FirebaseAuth.instance.currentUser!.uid)
-      .get()
-      .then((DocumentSnapshot documentSnapshot) {
-    if (documentSnapshot.get("userUid") == FirebaseAuth.instance.currentUser!.uid)
-    {
-      Navigator.push(context, MaterialPageRoute(
-          builder: (context) => admin_home()));
-    }
-  });
 
-
-  FirebaseFirestore.instance.collection("Secretary").get().then((value) =>
-      value.docs.forEach((snapshot)
-      {
-        FirebaseFirestore.instance.collection("Secretary").doc(snapshot.id).collection("Members")
-            .doc(FirebaseAuth.instance.currentUser!.uid)
-            .get()
-            .then((snapshot) {
-          if (snapshot.get("userUid") == FirebaseAuth.instance.currentUser!.uid)
-          {
-            Navigator.push(context, MaterialPageRoute(
-                builder: (context) => user_home()));
+  void fun() {
+    FirebaseFirestore.instance
+        .collection('Secretary')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get()
+        .then((DocumentSnapshot documentSnapshot) {
+          if (documentSnapshot.get("userUid") ==
+              FirebaseAuth.instance.currentUser!.uid) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => admin_home()),
+            );
           }
         });
-      }
-      ));
-}
 
+    FirebaseFirestore.instance
+        .collection("Secretary")
+        .get()
+        .then(
+          (value) => value.docs.forEach((snapshot) {
+            FirebaseFirestore.instance
+                .collection("Secretary")
+                .doc(snapshot.id)
+                .collection("Members")
+                .doc(FirebaseAuth.instance.currentUser!.uid)
+                .get()
+                .then((snapshot) {
+                  if (snapshot.get("userUid") ==
+                      FirebaseAuth.instance.currentUser!.uid) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => user_home()),
+                    );
+                  }
+                });
+          }),
+        );
+  }
 }
-

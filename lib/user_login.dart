@@ -154,10 +154,12 @@ class _user_loginState extends State<user_login> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => user_profile(),
+                                        builder: (context) => user_home(),
                                       ),
                                     );
-                                    Fluttertoast.showToast(msg: "Login Successful");
+                                    Fluttertoast.showToast(
+                                      msg: "Login Successful",
+                                    );
                                   })
                                   .catchError((e) {
                                     Fluttertoast.showToast(msg: "Login failed");

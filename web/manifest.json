@@ -1,6 +1,6 @@
 {
-    "name": "my_apart",
-    "short_name": "my_apart",
+    "name": "apartmentapp",
+    "short_name": "apartmentapp",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
