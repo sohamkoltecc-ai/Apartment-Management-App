@@ -17,7 +17,12 @@ class ApartmentManagementApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Apartment Management',
-      theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: true),
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 118, 194, 31),
+        ),
+        useMaterial3: true,
+      ),
       home: const DashboardPage(),
     );
   }
@@ -33,8 +38,14 @@ class DashboardPage extends StatefulWidget {
 class _DashboardPageState extends State<DashboardPage> {
   int selectedIndex = 0;
 
-  final List<Widget> pages = [
-    const HomePage(),
+  void _setPageIndex(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
+
+  List<Widget> get pages => [
+    HomePage(onTabSelected: _setPageIndex),
     const SecurityPage(),
     const VehiclePage(),
     const ServicesPage(),
@@ -86,7 +97,9 @@ class _DashboardPageState extends State<DashboardPage> {
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final ValueChanged<int> onTabSelected;
+
+  const HomePage({super.key, required this.onTabSelected});
 
   @override
   Widget build(BuildContext context) {
@@ -113,7 +126,10 @@ class HomePage extends StatelessWidget {
 
             const Text(
               'Manage your apartment easily',
-              style: TextStyle(fontSize: 16, color: Colors.grey),
+              style: TextStyle(
+                fontSize: 16,
+                color: Color.fromARGB(255, 186, 49, 49),
+              ),
             ),
 
             const SizedBox(height: 25),
@@ -130,57 +146,28 @@ class HomePage extends StatelessWidget {
                   icon: Icons.people,
                   title: 'Visitors',
                   subtitle: 'Manage visitors',
-                  onTap: () {
-                    // Visitors tab
-                    final state = context
-                        .findAncestorStateOfType<_DashboardPageState>();
-
-                    state?.setState(() {
-                      state.selectedIndex = 1;
-                    });
-                  },
+                  onTap: () => onTabSelected(1),
                 ),
 
                 _DashboardCard(
                   icon: Icons.directions_car,
                   title: 'Vehicles',
                   subtitle: 'Manage vehicles',
-                  onTap: () {
-                    final state = context
-                        .findAncestorStateOfType<_DashboardPageState>();
-
-                    state?.setState(() {
-                      state.selectedIndex = 2;
-                    });
-                  },
+                  onTap: () => onTabSelected(2),
                 ),
 
                 _DashboardCard(
                   icon: Icons.support_agent,
                   title: 'Services',
                   subtitle: 'Society contacts',
-                  onTap: () {
-                    final state = context
-                        .findAncestorStateOfType<_DashboardPageState>();
-
-                    state?.setState(() {
-                      state.selectedIndex = 3;
-                    });
-                  },
+                  onTap: () => onTabSelected(3),
                 ),
 
                 _DashboardCard(
                   icon: Icons.settings,
                   title: 'Settings',
                   subtitle: 'App settings',
-                  onTap: () {
-                    final state = context
-                        .findAncestorStateOfType<_DashboardPageState>();
-
-                    state?.setState(() {
-                      state.selectedIndex = 4;
-                    });
-                  },
+                  onTap: () => onTabSelected(4),
                 ),
               ],
             ),

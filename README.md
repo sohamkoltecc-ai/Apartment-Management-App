@@ -9,5 +9,5 @@ lib/
 ├── Widgets/                     
 │   ├── Button.dart 
 ├── backends/                     
-│   ├── Authentication.dart
+│   ├── authentication.dart
 ```
