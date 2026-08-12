@@ -19,7 +19,8 @@ class ApartmentManagementApp extends StatelessWidget {
       title: 'Apartment Management',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color.fromARGB(255, 118, 194, 31),
+          seedColor: Colors.blue.shade900,
+          brightness: Brightness.dark,
         ),
         useMaterial3: true,
       ),
