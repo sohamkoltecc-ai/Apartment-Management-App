@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1002898419393",
+    "project_id": "my-apart-40f06",
+    "storage_bucket": "my-apart-40f06.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1002898419393:android:cab81f3bd953d51427ee40",
+        "android_client_info": {
+          "package_name": "com.example.my_apart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRJiM2LTcY6uQyBRycK0BXZCGvVmatlDE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1002898419393:android:11147e3a7070cbab27ee40",
+        "android_client_info": {
+          "package_name": "com.example.my_aparte"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRJiM2LTcY6uQyBRycK0BXZCGvVmatlDE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
