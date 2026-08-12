@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:my_apart/splashScreen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-import 'security_page.dart';
-import 'vehicle_page.dart';
-import 'service_page.dart';
-import 'settings_page.dart';
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-void main() {
-  runApp(const ApartmentManagementApp());
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  runApp(const MyApp());
 }
 
-class ApartmentManagementApp extends StatelessWidget {
-  const ApartmentManagementApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -257,6 +260,9 @@ class _DashboardCard extends StatelessWidget {
           ),
         ),
       ),
+      title: 'My Apartment',
+      theme: ThemeData(fontFamily: GoogleFonts.lato().fontFamily),
+      home: SplashScreen(),
     );
   }
 }
