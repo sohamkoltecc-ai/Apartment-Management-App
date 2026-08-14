@@ -244,7 +244,7 @@ class DashboardScreen extends StatelessWidget {
                 crossAxisSpacing: 12,
                 mainAxisSpacing: 12,
 
-                // Smaller cards
+                // Keep cards compact
                 childAspectRatio: 2.0,
 
                 children: [
@@ -280,9 +280,6 @@ class DashboardScreen extends StatelessWidget {
                     const NoticeScreen(),
                   ),
 
-                  // --------------------------------------------------
-                  // VISITORS - ADDED
-                  // --------------------------------------------------
                   buildCard(
                     context,
                     Icons.people,
@@ -291,9 +288,6 @@ class DashboardScreen extends StatelessWidget {
                     const VisitorScreen(),
                   ),
 
-                  // --------------------------------------------------
-                  // SOCIETY SERVICES - ADDED
-                  // --------------------------------------------------
                   buildCard(
                     context,
                     Icons.home_repair_service,
@@ -597,23 +591,28 @@ class DashboardScreen extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // Smaller icon
             CircleAvatar(
-              radius: 17,
+              radius: 15,
               backgroundColor: color.withOpacity(0.12),
               child: Icon(
                 icon,
                 color: color,
-                size: 19,
+                size: 20,
               ),
             ),
 
-            const SizedBox(width: 8),
+            const SizedBox(width: 10),
 
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.bold,
+            // Bigger text
+            Flexible(
+              child: Text(
+                title,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ],
@@ -644,13 +643,14 @@ class DashboardScreen extends StatelessWidget {
                     ),
                     title: Text("Flat Number"),
                     subtitle: Text("A-203"),
-                  ),ListTile(
+                  ),
+
+                  ListTile(
                     leading: Icon(
                       Icons.apartment,
                       color: Colors.blue,
                     ),
-                    title: Text("Building"),
-                    subtitle: Text("Sunrise Residency"),
+                    title: Text("Building"),subtitle: Text("Sunrise Residency"),
                   ),
 
                   ListTile(
@@ -691,22 +691,25 @@ class DashboardScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CircleAvatar(
-              radius: 17,
+              radius: 15,
               backgroundColor: Colors.deepPurple.withOpacity(0.12),
               child: const Icon(
                 Icons.home,
                 color: Colors.deepPurple,
-                size: 19,
+                size: 20,
               ),
             ),
 
-            const SizedBox(width: 8),
+            const SizedBox(width: 10),
 
-            const Text(
-              "My Apartment",
-              style: TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.bold,
+            const Flexible(
+              child: Text(
+                "My Apartment",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ],
